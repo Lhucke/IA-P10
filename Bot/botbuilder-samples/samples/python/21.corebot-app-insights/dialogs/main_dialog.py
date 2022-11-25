@@ -21,6 +21,15 @@ from flight_booking_recognizer import FlightBookingRecognizer
 from helpers.luis_helper import LuisHelper, Intent
 from .booking_dialog import BookingDialog
 
+import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=4d0523a7-db59-4409-87cf-e692d3b14e00')
+)
 
 class MainDialog(ComponentDialog):
     def __init__(
@@ -86,6 +95,9 @@ class MainDialog(ComponentDialog):
         intent, luis_result = await LuisHelper.execute_luis_query(
             self._luis_recognizer, step_context.context
         )
+        if (luis_result.destination == None and luis_result.origin == None 
+        and luis_result.travel_date == None and luis_result.return_date == None and luis_result.budget ==  None):
+            logger.warning("Luis n'a trouvé aucun résultat")
 
         if intent == Intent.BOOK_FLIGHT.value and luis_result:
             # Show a warning for Origin and Destination if we can't resolve them.

@@ -68,17 +68,20 @@ class LuisHelper:
                 date_entities = recognizer_result.entities.get("$instance", {}).get(
                     "str_date", []
                 )
-                result.travel_date = date_entities[0]["text"]
+                if len(date_entities) > 0:
+                    result.travel_date = date_entities[0]["text"]
 
                 return_entities = recognizer_result.entities.get("$instance", {}).get(
                     "end_date", []
                 )
-                result.return_date = return_entities[0]["text"]
-
+                if len(return_entities) > 0:
+                    result.return_date = return_entities[0]["text"]
+                
                 budget_entities = recognizer_result.entities.get("$instance", {}).get(
                     "budget", []
                 )
-                result.budget = budget_entities[0]["text"]
+                if len(budget_entities) > 0:
+                    result.budget = budget_entities[0]["text"]
 
         except Exception as exception:
             print(exception)
