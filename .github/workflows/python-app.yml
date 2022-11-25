@@ -28,7 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         pip install aiounittest
-        pip install -r  Lhucke\IA-P10\Bot\botbuilder-samples\samples\python\21.corebot-app-insights\requirements.txt
+        pip install -r  Lhucke/IA-P10/Bot/botbuilder-samples/samples/python/21.corebot-app-insights/requirements.txt
     - name: Test with pytest
       run: |
         pytest
