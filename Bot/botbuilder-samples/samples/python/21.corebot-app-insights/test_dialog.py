@@ -1,82 +1,18 @@
 import aiounittest
 import json
 
-from botbuilder.core import ConversationState, MemoryStorage, TurnContext, MessageFactory
+from botbuilder.core import ConversationState, MemoryStorage, TurnContext
 from botbuilder.core.adapters import TestAdapter
-from botbuilder.dialogs import DialogSet, DialogTurnStatus, WaterfallDialog, WaterfallStepContext
-from botbuilder.dialogs.prompts import TextPrompt, PromptOptions
-from botbuilder.schema import Activity, ActivityTypes, Attachment
+from botbuilder.dialogs import DialogSet, DialogTurnStatus
 
 from config import DefaultConfig
 from dialogs import BookingDialog, MainDialog
 from booking_details import BookingDetails
-from helpers.luis_helper import LuisHelper
 from flight_booking_recognizer import FlightBookingRecognizer
 
 booking_dialog = BookingDialog()
 adapter = TestAdapter()
 
-class LuisHelperTest(aiounittest.AsyncTestCase):
-    """Tests for the main dialog"""
-
-    async def test_execute_luis_query(self):
-
-        """Tests the execute_luis_query method"""
-        CONFIG = DefaultConfig()
-        RECOGNIZER = FlightBookingRecognizer(CONFIG)
-
-        async def exec_test(turn_context: TurnContext):
-            """Executes the test"""
-            # Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
-            intent, luis_result = await LuisHelper.execute_luis_query(
-                RECOGNIZER, turn_context
-            )
-            await turn_context.send_activity(
-                json.dumps(
-                    {
-                        "intent": intent,
-                        "booking_details": luis_result.__dict__,
-                    }
-                )
-            )
-
-        adapter = TestAdapter(exec_test)
-
-        await adapter.test(
-            "Hello",
-            json.dumps(
-                {
-                    "intent": "OrderTrip",
-                    "booking_details": BookingDetails().__dict__,
-                }
-            ),
-        )
-
-        await adapter.test(
-            "I want to go from Paris to London on 12th september",
-            json.dumps(
-                {
-                    "intent": "OrderTrip",
-                    "booking_details": BookingDetails(
-                        origin="Paris",
-                        destination="London",
-                        travel_date="12th september",
-                    ).__dict__,
-                }
-            ),
-        )
-
-        await adapter.test(
-            "I want to go from Paris",
-            json.dumps(
-                {
-                    "intent": "OrderTrip",
-                    "booking_details": BookingDetails(
-                        origin="Paris",
-                    ).__dict__,
-                }
-            ),
-        )
 
 class MainDialogTest(aiounittest.AsyncTestCase):
     """Tests for the main dialog"""
