@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env: 
-      AppInsightsInstrumentationKey: ${{ APPINSIGHTS_INSTRUMENTATION_KEY }}
+      AppInsightsInstrumentationKey: ${{ secrets.APPINSIGHTS_INSTRUMENTATION_KEY }}
 
     steps:
     - uses: actions/checkout@v3
