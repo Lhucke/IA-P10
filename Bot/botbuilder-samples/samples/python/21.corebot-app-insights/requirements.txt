@@ -19,15 +19,15 @@ emoji==1.7
 python-dotenv
 dateparser==1.1.1
 
--e ./libraries/botbuilder-schema
--e ./libraries/botframework-connector
--e ./libraries/botframework-streaming
--e ./libraries/botbuilder-core
--e ./libraries/botbuilder-ai
--e ./libraries/botbuilder-applicationinsights
--e ./libraries/botbuilder-dialogs
--e ./libraries/botbuilder-azure
--e ./libraries/botbuilder-integration-applicationinsights-aiohttp
--e ./libraries/botbuilder-adapters-slack
--e ./libraries/botbuilder-integration-aiohttp
--e ./libraries/botbuilder-testing
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-schema
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botframework-connector
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botframework-streaming
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-core
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-ai
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-applicationinsights
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-dialogs
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-azure
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-integration-applicationinsights-aiohttp
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-adapters-slack
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-integration-aiohttp
+-e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-testing
