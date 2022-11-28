@@ -19,15 +19,15 @@ emoji==1.7
 python-dotenv
 dateparser==1.1.1
 
--e ./libraries/botbuilder-schema
--e ./libraries/botframework-connector
--e ./libraries/botframework-streaming
--e ./libraries/botbuilder-core
--e ./libraries/botbuilder-ai
--e ./libraries/botbuilder-applicationinsights
--e ./libraries/botbuilder-dialogs
--e ./libraries/botbuilder-azure
--e ./libraries/botbuilder-integration-applicationinsights-aiohttp
--e ./libraries/botbuilder-adapters-slack
--e ./libraries/botbuilder-integration-aiohttp
--e ./libraries/botbuilder-testing
+-e ./lib/botbuilder-schema
+-e ./lib/botframework-connector
+-e ./lib/botframework-streaming
+-e ./lib/botbuilder-core
+-e ./lib/botbuilder-ai
+-e ./lib/botbuilder-applicationinsights
+-e ./lib/botbuilder-dialogs
+-e ./lib/botbuilder-azure
+-e ./lib/botbuilder-integration-applicationinsights-aiohttp
+-e ./lib/botbuilder-adapters-slack
+-e ./lib/botbuilder-integration-aiohttp
+-e ./lib/botbuilder-testing
