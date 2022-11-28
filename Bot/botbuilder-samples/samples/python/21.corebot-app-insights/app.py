@@ -104,6 +104,6 @@ def init_func(argv):
 if __name__ == "__main__":
     APP = init_func(None)
     try:
-        web.run_app(APP, host="0.0.0.0", port=8000)
+        web.run_app(APP, host="0.0.0.0", port=8080)
     except Exception as error:
         raise error
