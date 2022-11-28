@@ -18,6 +18,7 @@ opencensus-ext-azure
 emoji==1.7
 python-dotenv
 dateparser==1.1.1
+pytest
 
 -e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botbuilder-schema
 -e Bot/botbuilder-samples/samples/python/21.corebot-app-insights/libraries/botframework-connector
