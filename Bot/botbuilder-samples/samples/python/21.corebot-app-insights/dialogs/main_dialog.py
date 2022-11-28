@@ -31,7 +31,6 @@ INSTRUMENTATION_KEY = CONFIG.APPINSIGHTS_INSTRUMENTATION_KEY
 
 logger = logging.getLogger(__name__)
 
-# TODO: replace the all-zero GUID with your instrumentation key.
 connection_string = 'InstrumentationKey='+'4d0523a7-db59-4409-87cf-e692d3b14e00'
 logger.addHandler(AzureLogHandler(
     connection_string=connection_string)
