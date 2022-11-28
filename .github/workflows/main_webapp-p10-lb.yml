@@ -29,7 +29,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install -r Bot/botbuilder-samples/samples/python/21.corebot-app-insights/requirements.txt
+          pip3 install -r Bot/botbuilder-samples/samples/python/21.corebot-app-insights/requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
