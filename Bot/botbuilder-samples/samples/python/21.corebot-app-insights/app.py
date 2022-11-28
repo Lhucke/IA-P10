@@ -95,14 +95,17 @@ if __name__ == "__main__":
     except Exception as error:
         raise error
 """
-def init_func(argv):
-    APP = web.Application(middlewares=[bot_telemetry_middleware, aiohttp_error_middleware])
+def init_func(self):
+    print("init_func")
+    APP = web.Application(middlewares=[aiohttp_error_middleware])
     APP.router.add_post("/api/messages", messages)
     return APP
 
+
 if __name__ == "__main__":
-    APP = init_func(None)
+    APP = init_func(main)
     try:
+        # Oubliez pas de mettre PORT = 8000 dans votre config.py
         web.run_app(APP, host="0.0.0.0", port=8000)
     except Exception as error:
         raise error
